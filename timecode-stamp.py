@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 
-def timecode_stamp(video_dir, csv_file, out_dir = None, font_path = 'font.ttf', font_factor = 25, open_dir = True):
+def timecode_stamp(video_dir, csv_file, out_dir = None, font_path = 'font.ttf', font_factor = 10, open_dir = True):
 
     # supported containers
     video_ext = ('.mp4', '.mov') 
@@ -13,7 +13,7 @@ def timecode_stamp(video_dir, csv_file, out_dir = None, font_path = 'font.ttf', 
         os.mkdir(out_dir)
     # check font factor
     if not font_factor > 0:
-        font_factor = 25 # default value
+        font_factor = 10 # default value
 
     # list files and filepaths from video dir
     video_lst = [video for video in os.listdir(video_dir) if video[-4:].lower() in video_ext]
