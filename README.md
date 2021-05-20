@@ -1,5 +1,8 @@
 # timecode-stamp
 Batch add timecode stamps to videos
+<p align="left">
+  <img src="preview.jpg" width="600"></a>
+</p>
 
 # Description
 A python script which can add a timecode stamp to a video. The timecode as well as required video information are loaded from a CSV file, created from scratch or exported from the [Tentacle Timecode Tool](https://tentaclesync.com/timecode-tool). This little freeware can extract timecode recorded on the audio track from multiple videos and export it as CSV.
