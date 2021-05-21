@@ -1,11 +1,17 @@
 # timecode-stamp
 Batch add timecode stamps to videos
-<p align="left">
-  <img src="preview.jpg" width="600"></a>
+<p align="center">
+  <img src="img/preview.jpg" width="600"></a>
 </p>
 
 # Description
 A python script which can add a timecode stamp to a video. The timecode as well as required video information are loaded from a CSV file, created from scratch or exported from the [Tentacle Timecode Tool](https://tentaclesync.com/timecode-tool). This little freeware can extract timecode recorded on the audio track from multiple videos and export it as CSV.
+
+<p align="center">
+  <img src="img/csv_file.jpg" width="539"></a>
+</p>
+
+Required columns are *File Name*, *Audio TC* and *Video Framerate*. An optional Rotation column can be added to rotate the video during encoding. Supported values are -90, 90 and 180. Leave blank or 0 for no rotation.
 
 The videos are re-encoded using ffmpeg. The script can work as a batch, by loading videos from multiple entries in the CSV file.
 
