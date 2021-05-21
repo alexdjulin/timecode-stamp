@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 
-def timecode_stamp(video_dir, csv_file, out_dir = None, font_path = 'font.ttf', font_factor = 10, open_dir = True):
+def timecode_stamp(video_dir, csv_file, out_dir = None, font_path = 'font.ttf', font_factor = 10, overwrite = False, open_dir = True):
 
     # supported containers
     video_ext = ('.mp4', '.mov') 
@@ -29,19 +29,27 @@ def timecode_stamp(video_dir, csv_file, out_dir = None, font_path = 'font.ttf', 
         timecode = df.iloc[i]['Audio TC'].replace(':', '\:')
         framerate = df.iloc[i]['Video Framerate']
         rotation = ''
-        # if Rotation column in csv file and rotation agnle supported
-        if 'Rotation' in df:
-            angle = int(df.iloc[i]['Rotation'])
-            rotation_arg = {90: 'transpose=1, ', -90: 'transpose=2, ', 180: 'transpose=2,transpose=2, '} # arguments for the ffmpeg rotation
-            if angle in rotation_arg.keys():
-                rotation = rotation_arg[angle]
 
-        print(50*'#') # output separator
-        print(filename, timecode, framerate, rotation)
-        
         if filename in video_lst:
+            # define video in/out paths
             video_in = os.path.join(video_dir, filename)
             video_out = os.path.join(out_dir, filename)
+
+            # skip file if already in output folder and overwrite is set to False
+            if os.path.isfile(video_out) and not overwrite:
+                print("{} already in output folder - Skipped. Delete file or set overwrite parameter to True".format(filename))
+                continue
+            
+            # if Rotation column in csv file and rotation agnle supported
+            if 'Rotation' in df:
+                angle = int(df.iloc[i]['Rotation'])
+                rotation_arg = {90: 'transpose=1, ', -90: 'transpose=2, ', 180: 'transpose=2,transpose=2, '} # arguments for the ffmpeg rotation
+                if angle in rotation_arg.keys():
+                    rotation = rotation_arg[angle]
+
+            print(50*'#') # log separator
+            print(filename, timecode, framerate, rotation)
+        
 
             command = "ffmpeg -i {input} -filter_complex \"{rot}drawtext=fontfile={font}: fontsize=(h/{size}): timecode='{tc}': r={fps}: \ x=(w-tw)/2: y=h-(2*lh): fontcolor=white: box=1: boxcolor=0x00000000@1\" -an -y {output}".format(input=video_in, output=video_out, tc=timecode, fps=framerate, rot=rotation, font=font_path, size = font_factor)
             print(command)
@@ -61,4 +69,4 @@ if __name__ == "__main__":
     video_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "medias")
     csv_file = os.path.join(video_dir, 'tc.csv')
 
-    timecode_stamp(video_dir, csv_file)
+    timecode_stamp(video_dir, csv_file, overwrite=True)
