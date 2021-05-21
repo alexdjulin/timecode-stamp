@@ -9,6 +9,10 @@ A python script which can add a timecode stamp to a video. The timecode as well 
 
 The videos are re-encoded using ffmpeg. The script can work as a batch, by loading videos from multiple entries in the CSV file.
 
+# Requirements
+See requirements.txt
+Additionnaly you will need [ffmpeg](https://www.ffmpeg.org/download.html) installed and running on your PC. You should already, as it's an amazing tool! Tons of tutorials online to install it.
+
 # Use
 Simply call the timecode_stamp function with following arguments:
 * video_dir (mandatory): Path to directory containing video files
