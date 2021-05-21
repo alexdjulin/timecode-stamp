@@ -14,6 +14,8 @@ See requirements.txt
 
 Additionnaly you will need [ffmpeg](https://www.ffmpeg.org/download.html) installed and running on your PC. You should already, as it's an amazing tool! Tons of tutorials online to install it.
 
+The script is running in Python 2.7 and 3.8 environments.
+
 # Use
 Simply call the timecode_stamp function with following arguments:
 * video_dir (mandatory): Path to directory containing video files
