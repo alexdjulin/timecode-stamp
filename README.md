@@ -18,7 +18,7 @@ The videos are re-encoded using ffmpeg. The script can work as a batch, by loadi
 # Requirements
 See requirements.txt
 
-Additionnaly you will need [ffmpeg](https://www.ffmpeg.org/download.html) installed and running on your PC. You should already, as it's an amazing tool! Tons of tutorials online to install it.
+Additionnaly you will need [ffmpeg](https://www.ffmpeg.org/download.html) installed and running on your PC. You should already, as it is an amazing tool! Tons of tutorials online on how to install it.
 
 The script is running in Python 2.7 and 3.8 environments.
 
