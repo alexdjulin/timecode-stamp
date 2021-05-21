@@ -11,7 +11,7 @@ A python script which can add a timecode stamp to a video. The timecode as well 
   <img src="img/csv_file.jpg" width="539"></a>
 </p>
 
-Required columns are *File Name*, *Audio TC* and *Video Framerate*. An optional Rotation column can be added to rotate the video during encoding. Supported values are -90, 90 and 180. Leave blank or 0 for no rotation.
+Required columns are *File Name*, *Audio TC* and *Video Framerate*. An optional *Rotation* column can be added to rotate the video during encoding. Supported values are -90, 90 and 180. Leave blank or 0 for no rotation.
 
 The videos are re-encoded using ffmpeg. The script can work as a batch, by loading videos from multiple entries in the CSV file.
 
