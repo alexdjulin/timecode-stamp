@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 
-def timecode_stamp(video_dir, csv_file, out_dir = None, font_path = 'fonts/arial.ttf', font_factor = 25, overwrite = False, open_dir = True):
+def timecode_stamp(video_dir, csv_file, out_dir = None, font_path = 'fonts/arial.ttf', font_factor = 15, overwrite = False, open_dir = True):
 
     # supported containers
     video_ext = ('.mp4', '.mov') 
@@ -66,7 +66,7 @@ def timecode_stamp(video_dir, csv_file, out_dir = None, font_path = 'fonts/arial
 if __name__ == "__main__":
 
     # define video directory and csv file paths
-    video_dir = r"C:\Users\artist\Desktop\TEST"
+    video_dir = r"M:\Artist_Personal\Alexandre\Scripts\Git\timecode-stamp\medias"
     csv_file = os.path.join(video_dir, 'tc.csv')
 
     timecode_stamp(video_dir, csv_file, overwrite=True)
