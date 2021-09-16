@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 
-def timecode_stamp(video_dir, csv_file, out_dir = None, font_path = 'arial.ttf', font_factor = 25, overwrite = False, open_dir = True):
+def timecode_stamp(video_dir, csv_file, out_dir = None, font_path = 'fonts/arial.ttf', font_factor = 25, overwrite = False, open_dir = True):
 
     # supported containers
     video_ext = ('.mp4', '.mov') 
@@ -51,7 +51,7 @@ def timecode_stamp(video_dir, csv_file, out_dir = None, font_path = 'arial.ttf',
             print(filename, timecode, framerate, rotation)
         
 
-            command = "ffmpeg -i {input} -filter_complex \"{rot}drawtext=fontfile={font}: fontsize=(h/{size}): text={take_name}: timecode='{tc}': r={fps}: \ x=(w-tw)/2: y=h-(lh): fontcolor=white: box=1: boxcolor=0x00000000@1\" -an -y {output}".format(input=video_in, output=video_out, tc=timecode, fps=framerate, rot=rotation, font=font_path, size = font_factor, take_name=filename[:-4]+' / ')
+            command = "ffmpeg -i {input} -filter_complex \"{rot}drawtext=fontfile={font}: fontsize=(h/{size}): text={take_name}: timecode='{tc}': r={fps}: \ x=(w-tw)/2: y=h-(lh): fontcolor=white: box=1: boxcolor=0x00000000@1\" -an -y {output}".format(input=video_in, output=video_out, tc=timecode, fps=framerate, rot=rotation, font=font_path, size = font_factor, take_name=filename[:-4]+'  Tc/')
             print(command)
             os.system(command)
 
@@ -66,7 +66,7 @@ def timecode_stamp(video_dir, csv_file, out_dir = None, font_path = 'arial.ttf',
 if __name__ == "__main__":
 
     # define video directory and csv file paths
-    video_dir = r"N:\projects\Signtime\SiCap\source\20210909_SignTime\iphone\MOV"
+    video_dir = r"C:\Users\artist\Desktop\TEST"
     csv_file = os.path.join(video_dir, 'tc.csv')
 
     timecode_stamp(video_dir, csv_file, overwrite=True)
