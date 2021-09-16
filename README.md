@@ -5,13 +5,13 @@ Batch add timecode stamps to videos
 </p>
 
 # Description
-A python script which can add a timecode stamp to a video. The timecode as well as required video information are loaded from a CSV file, created from scratch or exported from the [Tentacle Timecode Tool](https://tentaclesync.com/timecode-tool). This little freeware can extract timecode recorded on the audio track from multiple videos and export it as CSV.
+A python script which can add video filename and timecode stamp to a video. The timecode as well as required video information are loaded from a CSV file, created from scratch or exported from the [Tentacle Timecode Tool](https://tentaclesync.com/timecode-tool). This little freeware can extract timecode recorded on the audio track from multiple videos and export it as CSV.
 
 <p align="center">
   <img src="img/csv_file.jpg" width="539"></a>
 </p>
 
-Required columns are *File Name*, *Audio TC* and *Video Framerate*. An optional Rotation column can be added to rotate the video during encoding. Supported values are -90, 90 and 180. Leave blank or 0 for no rotation.
+Required columns are *File Name*, *Audio TC* and *Video Framerate*. An optional Rotation column can be added to rotate the video during encoding. Supported values are -90, 90 and 180. Write 0 for no rotation.
 
 The videos are re-encoded using ffmpeg. The script can work as a batch, by loading videos from multiple entries in the CSV file.
 
@@ -31,8 +31,8 @@ REQUIRED:
 
 OPTIONAL:
 * **out_dir** ('out_TC' by default) output directory
-* **font_path** (font.ttf by default) path to font
-* **font_factor** (25 by default) font size factor (video height / value), the higher the value, the smaller the font size
+* **font_path** (fonts/arial.ttf by default) path to font
+* **font_factor** (15 by default) font size factor (video height / value), the higher the value, the smaller the font size
 * **overwrite** (False by default) overwrite video files in the output folder if they already exist
 * **open_dir** (True by default) opens output directory at the end
 
