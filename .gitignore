@@ -131,3 +131,6 @@ dmypy.json
 # Additional
 /doc/
 /.vscode/
+
+# Windows thumbnails
+Thumbs.db

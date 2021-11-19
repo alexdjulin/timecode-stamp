@@ -1,4 +1,4 @@
-File Name,Duration,File TC,Audio TC,Framerate,Video Framerate,Rotation
-20fox_intro.mp4,00:00:15,,15:08:59:15,30,24,0
-univ_intro.mp4,00:00:29,,16:33:48:06,30,30,90
-param_intro.mp4,00:00:29,,14:10:52:25,30,24,180
+File Path,File Name,Duration,Audio TC,Framerate,Rotation
+D:\timecode-stamp\medias,20fox_intro.mp4,00:00:15,15:08:59:15,30,0
+D:\timecode-stamp\medias,univ_intro.mp4,00:00:29,16:33:48:06,30,90
+D:\timecode-stamp\medias,param_intro.mp4,00:00:29,14:10:52:25,30,180
